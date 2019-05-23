@@ -43,6 +43,8 @@ class challenge_arena():
         #I can't figure these out.  
         #Roughly this:
         #print(self.arena_array.shape)
+        
+        
         wall_1_start = self.convert_to_grid(0,-10)
         
         wall_1_end = self.convert_to_grid(0,10)
@@ -55,15 +57,15 @@ class challenge_arena():
                 self.arena_array[n,m] =1
                 #print("Setting: ",  n,m, self.arena_array.shape)
         
-        wall_2_start = self.convert_to_grid(-5,-10)
-        wall_2_end = self.convert_to_grid(5,-10);
+        wall_2_start = self.convert_to_grid(-7,-10)
+        wall_2_end = self.convert_to_grid(3,-10);
         for m in range(wall_2_start[0], wall_2_end[0]+1):
             for n in range(wall_2_start[1], wall_2_end[1]+1):
                 #print("Setting: ", n,m, self.arena_array.shape)
                 self.arena_array[n,m] =1
         
-        wall_3_start = self.convert_to_grid(-5,10)
-        wall_3_end = self.convert_to_grid(5,10);
+        wall_3_start = self.convert_to_grid(-7,10)
+        wall_3_end = self.convert_to_grid(3,10);
         for m in range(wall_3_start[0], wall_3_end[0]+1):
             for n in range(wall_3_start[1], wall_3_end[1]+1):
                 #print("Setting: ", n,m, self.arena_array.shape)
