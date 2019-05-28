@@ -9,8 +9,12 @@ import os
 import cv2
 import math
 import win32com
-import roslibpy
 import numpy as np
+#import roslibpy
+import rospy
+
+from sensor_msgs.msg import Image
+
 from numpy.linalg import lstsq
 from matplotlib import pyplot as plt
 
@@ -18,6 +22,14 @@ from sklearn.cluster import KMeans
 from sklearn import metrics
 from scipy.spatial.distance import cdist
 from sklearn.linear_model import LinearRegression
+
+def callback_function(input):
+	print("")
+
+def process_image():
+	rospy.init_node('find_centroids', anonymous = True)
+	rospy.Subscriber('/iris_1/camera_down/image_raw', Image, callback)
+	rospy.spin()
 
 #Distance Formula
 def distance(p0, p1):
