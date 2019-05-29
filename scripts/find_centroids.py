@@ -14,6 +14,7 @@ import numpy as np
 import rospy
 
 from sensor_msgs.msg import Image
+from cv_bridge import CvBridge, CvBridgeError
 
 from numpy.linalg import lstsq
 from matplotlib import pyplot as plt

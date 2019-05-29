@@ -4,13 +4,18 @@ project(first_challenge_python)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
+set (OpenCV_DIR /usr/share/OpenCV)
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  std_msgs
+	roscpp
+	rospy
+	std_msgs
+	cv_bridge
+	sensor_msgs
+	OpenCV REQUIRED
 )
 
 ## System dependencies are found with CMake's conventions
@@ -117,7 +122,8 @@ catkin_package(
 ## Your package locations should be listed before other locations
 include_directories(
 # include
-  ${catkin_INCLUDE_DIRS}
+	${catkin_INCLUDE_DIRS}
+	${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -163,6 +169,11 @@ include_directories(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+install (
+	PROGRAMS
+	scripts/first_challenge_integrated.py
+	DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
